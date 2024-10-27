@@ -76,3 +76,19 @@ void inicializar_clientes() {
     strcpy(clientes[4].login, "cliente5");
     strcpy(clientes[4].senha, "senha5");
 }
+
+int login(Cliente *cliente) {
+    char login[MAX_LOGIN], senha[MAX_SENHA];
+    printf("Login: ");
+    scanf("%s", login);
+    printf("Senha: ");
+    scanf("%s", senha);
+
+    for (int i = 0; i < MAX_CLIENTES; i++) {
+        if (strcmp(clientes[i].login, login) == 0 && strcmp(clientes[i].senha, senha) == 0) {
+            *cliente = clientes[i];
+            return 1;
+        }
+    }
+    return 0;
+}
