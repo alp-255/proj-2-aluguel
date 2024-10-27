@@ -124,3 +124,26 @@ void alugar_carro() {
     float total = carros[escolha - 1].preco_diaria * dias;
     printf("Você alugou %s por %d dias. Total: R$ %.2f\n", carros[escolha - 1].modelo, dias, total);
 }
+
+int main() {
+    Cliente cliente;
+
+    inicializar_carros();
+    inicializar_clientes();
+
+    printf("Bem-vindo ao sistema de aluguel de carros!\n");
+    if (!login(&cliente)) {
+        printf("Login falhou. Encerrando o programa.\n");
+        return 1;
+    }
+
+    int opcao;
+    do {
+        printf("\nMenu:\n");
+        printf("1. Listar carros\n");
+        printf("2. Alugar carro\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        
