@@ -92,3 +92,35 @@ int login(Cliente *cliente) {
     }
     return 0;
 }
+
+void listar_carros() {
+    printf("\nCarros disponíveis para aluguel:\n");
+    for (int i = 0; i < MAX_CARROS; i++) {
+        if (carros[i].disponivel) {
+            printf("%d: %s - R$ %.2f por dia\n", i + 1, carros[i].modelo, carros[i].preco_diaria);
+        }
+    }
+}
+
+void alugar_carro() {
+    int escolha, dias;
+    listar_carros();
+    printf("Escolha o carro (1-%d): ", MAX_CARROS);
+    scanf("%d", &escolha);
+    
+    if (escolha < 1 || escolha > MAX_CARROS || !carros[escolha - 1].disponivel) {
+        printf("Carro inválido ou não disponível.\n");
+        return;
+    }
+
+    printf("Por quantos dias deseja alugar? ");
+    scanf("%d", &dias);
+    if (dias <= 0) {
+        printf("Número de dias inválido.\n");
+        return;
+    }
+
+    carros[escolha - 1].disponivel = 0; // Marca como alugado
+    float total = carros[escolha - 1].preco_diaria * dias;
+    printf("Você alugou %s por %d dias. Total: R$ %.2f\n", carros[escolha - 1].modelo, dias, total);
+}
