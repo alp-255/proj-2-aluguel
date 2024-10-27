@@ -146,4 +146,20 @@ int main() {
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
-        
+        switch (opcao) {
+            case 1:
+                listar_carros();
+                break;
+            case 2:
+                alugar_carro();
+                break;
+            case 3:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida.\n");
+        }
+    } while (opcao != 3);
+
+    return 0;
+}
