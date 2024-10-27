@@ -18,6 +18,9 @@ typedef struct {
     char senha[MAX_SENHA];
 } Cliente;
 
+Carro carros[MAX_CARROS];
+Cliente clientes[MAX_CLIENTES]; 
+
 void inicializar_carros() {
     strcpy(carros[0].modelo, "Fusca");
     carros[0].preco_diaria = 50.0;
