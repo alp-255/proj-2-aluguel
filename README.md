@@ -5,10 +5,6 @@
 
  Como Usar:
 
- Compile o código usando o GCC: gcc aluguel_carros.c -o aluguel_carros
-
- Execute o programa: ./aluguel_carros
-
  Faça login com um dos clientes pré-definidos, por exemplo:
 
 Login: cliente1
